@@ -60,13 +60,9 @@ public class Perro implements Serializable{
     }
 
     
-    }
-
-    
-
     @Override
     public String toString() {
-        return "Perro{" + "nombre=" + nombre + ", numero=" + numero + ", edad=" + edad + '}';
+        return "Perro{" + "nombre=" + nombre + ", numero=" + numero + ", edad=" + edad +  '}';
     }   
    
    

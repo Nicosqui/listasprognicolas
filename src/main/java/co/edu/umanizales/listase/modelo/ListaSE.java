@@ -130,7 +130,7 @@ public class ListaSE {
         }
     }
     
-    public void eliminarInfante(short numero ) 
+    public void eliminarPerro(short numero ) 
     {
         if(cabeza !=null)
         {
