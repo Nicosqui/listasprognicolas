@@ -158,6 +158,29 @@ public class ListaSE {
         
     }
     
+    /**
+     * Metodo para encontrar un perro por posicion
+     * @param posicion recive la poasicion a buscar
+     * @return Perro información del nodo encontrado
+     */
+    
+    public Perro encontrarxPosicion(int posicion){
+        
+        if(cabeza!=null)
+        {
+            Nodo temp = cabeza;
+            int cont = 1;
+            while(posicion!=cont)
+            {
+                temp = temp.getSiguiente();
+                cont++;
+            }
+            //Estamos parados en el que estabamos buscando
+            return temp.getDato();
+        }
+        
+        return null;
+    }
     
     
 }
