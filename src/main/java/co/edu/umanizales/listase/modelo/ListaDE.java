@@ -14,9 +14,6 @@ public class ListaDE {
     private NodoDE cabeza;
     //Otros metodos
 
-    public ListaDE() {
-    }
-
     public NodoDE getCabeza() {
         return cabeza;
     }
@@ -42,6 +39,7 @@ public class ListaDE {
             }
             //PArado en el ultimo
             temp.setSiguiente(new NodoDE(dato));
+            temp.getSiguiente().setAnterior(temp);
         } else {
             cabeza = new NodoDE(dato);
         }
@@ -55,7 +53,7 @@ public class ListaDE {
             cabeza.setDato(dato);
             return true;
         }
-        NodoDE temp = irUltimo();
+        NodoDE temp = obtenerUltimo();
         NodoDE newNode = new NodoDE();
         newNode.setDato(dato);
         newNode.setAnterior(temp);
@@ -182,7 +180,7 @@ public class ListaDE {
         return cont;
     }
 
-    public NodoDE irUltimo() {
+    public NodoDE obtenerUltimo() {
 
         NodoDE temp = cabeza;
         while (temp.getSiguiente() != null) {
@@ -191,20 +189,30 @@ public class ListaDE {
         /// Parado en el último nodo
         return temp;
     }
-    
-        public void intercambiarExtremos()
-    {
-        if(cabeza!=null)
-        {
-           NodoDE temp = cabeza;
-           while(temp.getSiguiente()!=null)
-           {
-               temp = temp.getSiguiente();
-           }
-           /// Parado en el último nodo
-           Perro perrotemp = cabeza.getDato();
-           cabeza.setDato(temp.getDato());
-           temp.setDato(perrotemp);           
+
+    public void intercambiarExtremos() {
+        if (cabeza != null) {
+            NodoDE temp = cabeza;
+            while (temp.getSiguiente() != null) {
+                temp = temp.getSiguiente();
+            }
+            /// Parado en el último nodo
+            Perro perrotemp = cabeza.getDato();
+            cabeza.setDato(temp.getDato());
+            temp.setDato(perrotemp);
+        }
+    }
+
+        public void invertir() {
+        if (cabeza != null) {
+            ListaDE listaTemporal = new ListaDE();
+            NodoDE temp = cabeza;
+            while (temp != null)//Recorre de principio a fin
+            {
+                listaTemporal.adicionarAlInicioDE(temp.getDato());
+                temp = temp.getSiguiente();//Ayudante pase al siguiente perro
+            }
+            cabeza = listaTemporal.getCabeza();
         }
     }
 }
