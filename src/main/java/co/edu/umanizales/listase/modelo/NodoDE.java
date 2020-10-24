@@ -20,7 +20,10 @@ public class NodoDE implements Serializable{
     public NodoDE(Perro dato) {
         this.dato = dato;
     }
-    
+
+    public NodoDE() {
+    }
+       
 
     public Perro getDato() {
         return dato;
